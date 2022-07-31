@@ -3,7 +3,7 @@ name: tests
 on: push
 
 jobs:
-  phpunit:
+  run-tests:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
