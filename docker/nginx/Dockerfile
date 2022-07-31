@@ -6,7 +6,7 @@ WORKDIR /var/www
 COPY . /var/www
 
 # Copy existing application directory permissions
-COPY --chown=www:www . /var/www
+COPY . /var/www
 
 RUN apt-get update && apt-get install -y \
     curl

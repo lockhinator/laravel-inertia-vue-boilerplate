@@ -39,6 +39,10 @@ If you every have questions about how to do something in Laravel you can more th
   - `docker-compose run --rm fpm bash`
   - `php artisan migrate`
 
+## Commits
+
+In order to make commits better commitlint is a part of this repository. In order to run commitlints interactive prompts you must first install the packages by running the `yarn` command. After the packages are installed you can add your changes to git via `git add <files>` and then run `yarn commit` which will bring up the interactive prompt.
+
 #### Container logs
 
 You can find the container logs with `docker-compose logs <service>`. For example to view the main application logs you would execute `docker-compose logs app`. You can also add the `-f` flag to tail the logs `docker-compose logs -f <service>`.
