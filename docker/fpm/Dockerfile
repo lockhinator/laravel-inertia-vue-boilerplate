@@ -47,6 +47,9 @@ COPY . /var/www
 RUN yarn
 RUN yarn build
 
+# allow php-cs-fixer to be executed
+RUN chmod +x tools/php-cs-fixer/vendor/bin/php-cs-fixer
+
 # Expose port 9000 and start php-fpm server
 EXPOSE 9000
 CMD ["php-fpm"]

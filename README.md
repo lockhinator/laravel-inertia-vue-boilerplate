@@ -29,6 +29,7 @@ If you every have questions about how to do something in Laravel you can more th
 ## Getting started
 
 - Clone the repo
+  - `git clone https://github.com/lockhinator/fivem-plugin-manager`
 - Install prettier globally (node v16)
   - This is optional if you plan on using prettier outside of the Docker environment.
   - `npm install --location=global prettier @prettier/plugin-php`
@@ -36,8 +37,25 @@ If you every have questions about how to do something in Laravel you can more th
 - Start the containers
   - `docker-compose up -d`
 - Run the migrations
-  - `docker-compose run --rm fpm bash`
-  - `php artisan migrate`
+  - `docker-compose run --rm fpm php artisan migrate`
+
+## Running the Github Actions Checks Locally
+
+There are several checks that happen on each commit to the repository. These checks are:
+
+- php-cs-fixer (formatting check)
+- prettier/prettier-php (formatting check)
+- PHPUnit Tests
+- PHPUnit Test Coverage Check
+
+If any of these checks fail then the build will fail. Branches are not able to be merged into main until the CI checks have passed.
+
+In order to run these checks locally you can run the following:
+
+- `docker-compose run --rm fpm composer fix-cs-check` to check for any php-cs-fixer issues
+- `docker-compose run --rm fpm composer fix-cs` to attempt to fix any php-cs-fixer issues
+- `docker-compose run --rm web yarn prettier:check` to check for any formatting issues prettier may have
+- `docker-compose run --rm web yarn prettier:write` to fix any formatting issues prettier finds
 
 ## Commits
 

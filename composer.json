@@ -33,14 +33,11 @@
         }
     },
     "scripts": {
+        "fix-cs-check": [
+            "tools/php-cs-fixer/vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.dist.php --dry-run --verbose --using-cache=no --show-progress=dots"
+        ],
         "fix-cs": [
-            "tools/php-cs-fixer/vendor/bin/php-cs-fixer fix ./app --verbose --show-progress=dots",
-            "tools/php-cs-fixer/vendor/bin/php-cs-fixer fix ./bootstrap --verbose --show-progress=dots",
-            "tools/php-cs-fixer/vendor/bin/php-cs-fixer fix ./config --verbose --show-progress=dots",
-            "tools/php-cs-fixer/vendor/bin/php-cs-fixer fix ./database --verbose --show-progress=dots",
-            "tools/php-cs-fixer/vendor/bin/php-cs-fixer fix ./public --verbose --show-progress=dots",
-            "tools/php-cs-fixer/vendor/bin/php-cs-fixer fix ./routes --verbose --show-progress=dots",
-            "tools/php-cs-fixer/vendor/bin/php-cs-fixer fix ./tests --verbose --show-progress=dots"
+            "tools/php-cs-fixer/vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.dist.php --verbose --using-cache=no --show-progress=dots"
         ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",

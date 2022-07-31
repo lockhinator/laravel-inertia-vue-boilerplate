@@ -14,7 +14,7 @@ jobs:
         run: docker-compose build
       - name: Run lint/prettier checks
         run: |
-          docker-compose run --rm fpm composer fix-cs
+          docker-compose run --rm fpm composer fix-cs-check
           docker-compose run --rm web yarn prettier:check
       - name: Run PHPUnit Tests
         run: |
