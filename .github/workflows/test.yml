@@ -15,6 +15,9 @@ jobs:
           chmod +x tools/php-cs-fixer/vendor/bin/php-cs-fixer
       - name: Build containers
         run: docker-compose build
+      - name: Install Node Packages
+        run: |
+          docker-compose run --rm web yarn
       - name: Run lint/prettier checks
         run: |
           docker-compose run --rm fpm composer fix-cs-check

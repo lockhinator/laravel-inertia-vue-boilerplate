@@ -17,7 +17,7 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 # install nodejs 16
 RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
 RUN apt install -y nodejs
-RUN npm install --global -y yarn
+RUN npm install --location=global -y yarn
 
 # install and build the UI assets
 RUN yarn
