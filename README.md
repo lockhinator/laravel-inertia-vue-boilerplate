@@ -30,14 +30,19 @@ If you every have questions about how to do something in Laravel you can more th
 
 - Clone the repo
   - `git clone https://github.com/lockhinator/fivem-plugin-manager`
-- Install prettier globally (node v16)
-  - This is optional if you plan on using prettier outside of the Docker environment.
-  - `npm install --location=global prettier @prettier/plugin-php`
 - Install [Docker Desktop](https://www.docker.com/products/docker-desktop/) for your OS
 - Start the containers
   - `docker-compose up -d`
+- Copy the .env.example to be .env
+  - `cp .env.example .env`
+- Generate an encryption key for Laravel
+  - `docker-compose run --rm fpm php artisan key:generate`
 - Run the migrations
   - `docker-compose run --rm fpm php artisan migrate`
+- View it in the browser
+  - Open your browser and visit [http://localhost](http://localhost)
+
+At this point you are good to start developing.
 
 ## Running the Github Actions Checks Locally
 
