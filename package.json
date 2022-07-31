@@ -1,0 +1,31 @@
+{
+    "private": true,
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "commit": "git-cz",
+        "prettier": "prettier --config .prettierrc.json --ignore-path .prettierignore .",
+        "prettier:check": "npm run prettier -- --check",
+        "prettier:write": "npm run prettier -- --write"
+    },
+    "config": {
+        "commitizen": {
+            "path": "@commitlint/cz-commitlint"
+        }
+    },
+    "devDependencies": {
+        "@commitlint/cli": "^17.0.3",
+        "@commitlint/config-conventional": "^17.0.3",
+        "@commitlint/cz-commitlint": "^17.0.3",
+        "@prettier/plugin-php": "^0.18.9",
+        "axios": "^0.27",
+        "git-cz": "^4.9.0",
+        "glob": "^8.0.3",
+        "husky": "^8.0.1",
+        "laravel-vite-plugin": "^0.5.0",
+        "lodash": "^4.17.19",
+        "postcss": "^8.1.14",
+        "prettier": "^2.7.1",
+        "vite": "^3.0.0"
+    }
+}

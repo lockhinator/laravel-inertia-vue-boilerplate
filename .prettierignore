@@ -1,0 +1,9 @@
+.gitignore
+*.json
+.php-cs-fixer.cache
+.husky
+docker
+node_module
+storage
+tools
+vendor

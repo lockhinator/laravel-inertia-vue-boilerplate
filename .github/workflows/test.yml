@@ -1,0 +1,21 @@
+name: tests
+
+on: push
+
+jobs:
+  phpunit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Copy .env
+        run: cp .env.example .env
+      - name: Build containers
+        run: docker-compose build
+      - name: Run lint/prettier checks
+        run: |
+          docker-compose run --rm fpm composer fix-cs
+          docker-compose run --rm web yarn prettier:check
+      - name: Run PHPUnit Tests
+        run: |
+          docker-compose run --rm fpm php artisan test
