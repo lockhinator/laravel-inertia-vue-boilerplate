@@ -25,6 +25,9 @@ jobs:
       - name: Install Composer Packages
         run: |
           docker-compose run --rm fpm composer install
+      - name: Generate Key
+        run: |
+          docker-compose run --rm fpm php artisan key:generate
       - name: Run PHPUnit Tests
         run: |
           docker-compose run --rm fpm php artisan test --coverage --min=95
