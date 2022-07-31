@@ -22,6 +22,9 @@ jobs:
         run: |
           docker-compose run --rm fpm composer fix-cs-check
           docker-compose run --rm web yarn prettier:check
+      - name: Install Composer Packages
+        run: |
+          docker-compose run --rm fpm composer install
       - name: Run PHPUnit Tests
         run: |
           docker-compose run --rm fpm php artisan test

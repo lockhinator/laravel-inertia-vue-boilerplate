@@ -43,6 +43,9 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 # Copy existing application directory contents
 COPY . /var/www
 
+# Install all production composer deps
+RUN composer install --no-dev
+
 # install and build the UI assets
 RUN yarn
 RUN yarn build
