@@ -27,4 +27,4 @@ jobs:
           docker-compose run --rm fpm composer install
       - name: Run PHPUnit Tests
         run: |
-          docker-compose run --rm fpm php artisan test
+          docker-compose run --rm fpm php artisan test --coverage --min=95
