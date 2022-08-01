@@ -16,7 +16,7 @@ WORKDIR /var/www
 
 COPY --from=builder /code/vendor ./vendor
 
-RUN npm install -g npm@8.1.3
+RUN npm install --location=global npm@8.1.3
 
 COPY . /var/www
 
