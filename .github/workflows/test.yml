@@ -12,9 +12,10 @@ jobs:
         run: cp .env.example .env
       - name: Build containers
         run: docker-compose -f docker-compose.test.yml build fpm node
-      - name: Install Composer Packages
+      - name: Install Packages
         run: |
           docker-compose -f docker-compose.test.yml run --rm fpm composer install
+          docker-compose -f docker-compose.test.yml run --rm node yarn
       - name: php-cs-fixer Permissions
         run: |
           chmod +x tools/php-cs-fixer/vendor/bin/php-cs-fixer
