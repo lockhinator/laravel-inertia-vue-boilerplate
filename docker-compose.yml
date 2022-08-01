@@ -9,7 +9,7 @@ services:
     restart: always
     tty: true
     environment:
-      APP_ENV: 'development'
+      APP_ENV: 'local'
     volumes:
         - .:/var/www
     networks:
@@ -25,6 +25,23 @@ services:
     ports:
       - "80:80"
       - "443:443"
+    volumes:
+      - .:/var/www
+    networks:
+      - app-network
+
+  node:
+    build:
+      context: .
+      dockerfile: docker/node/Dockerfile
+    container_name: node
+    command: yarn dev
+    restart: always
+    tty: true
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
+    ports:
+      - "5173:5173"
     volumes:
       - .:/var/www
     networks:
