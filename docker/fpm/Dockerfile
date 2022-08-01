@@ -20,11 +20,6 @@ RUN apt-get update && apt-get install -y \
     git \
     curl
 
-# install nodejs 16
-RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
-RUN apt install -y nodejs
-RUN npm install --location=global -y yarn
-
 # Clear cache
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
@@ -50,10 +45,6 @@ COPY . /var/www
 
 # Install all production composer deps
 RUN composer install
-
-# install and build the UI assets
-RUN yarn
-RUN yarn build
 
 # allow php-cs-fixer to be executed
 RUN chmod +x tools/php-cs-fixer/vendor/bin/php-cs-fixer
