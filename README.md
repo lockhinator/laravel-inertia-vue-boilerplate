@@ -39,6 +39,9 @@ If you every have questions about how to do something in Laravel you can more th
   - `docker-compose run --rm fpm php artisan key:generate`
 - Run the migrations
   - `docker-compose run --rm fpm php artisan migrate`
+- Build the JS dependancies
+  - Production build: `docker-compose run --rm web yarn build`
+  - Development build: `docker-compose run --rm web yarn dev`
 - View it in the browser
   - Open your browser and visit [http://localhost](http://localhost)
 

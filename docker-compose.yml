@@ -12,6 +12,8 @@ services:
       APP_ENV: 'development'
     volumes:
         - .:/var/www
+        # this is to commit from the docker container
+        - ~/.gitconfig:/root/.gitconfig
     networks:
       - app-network
 
@@ -20,11 +22,13 @@ services:
       context: .
       dockerfile: docker/nginx/Dockerfile
     container_name: web
+    command: start_app
     restart: always
     tty: true
     ports:
       - "80:80"
       - "443:443"
+      - "5173:5173"
     volumes:
       - .:/var/www
     networks:
