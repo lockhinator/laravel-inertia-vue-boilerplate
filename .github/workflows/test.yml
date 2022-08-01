@@ -10,6 +10,9 @@ jobs:
         uses: actions/checkout@v3
       - name: Copy .env
         run: cp .env.example .env
+      - name: Install Composer Packages
+        run: |
+          docker-compose run --rm fpm composer install
       - name: php-cs-fixer Permissions
         run: |
           chmod +x tools/php-cs-fixer/vendor/bin/php-cs-fixer
@@ -22,9 +25,6 @@ jobs:
         run: |
           docker-compose run --rm fpm composer fix-cs-check
           docker-compose run --rm web yarn prettier:check
-      - name: Install Composer Packages
-        run: |
-          docker-compose run --rm fpm composer install
       - name: Generate Key
         run: |
           docker-compose run --rm fpm php artisan key:generate

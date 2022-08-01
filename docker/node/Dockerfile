@@ -11,5 +11,3 @@ RUN chown node:node /var/www
 USER node
 
 WORKDIR /var/www
-
-RUN yarn
