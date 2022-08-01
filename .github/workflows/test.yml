@@ -31,4 +31,4 @@ jobs:
           docker-compose -f docker-compose.test.yml run --rm fpm php artisan key:generate
       - name: Run PHPUnit Tests
         run: |
-          docker-compose -f docker-compose.test.yml run --rm fpm php artisan test --coverage --min=95
+          docker-compose -f docker-compose.test.yml run --rm fpm php artisan test --coverage --min=85
