@@ -10,7 +10,7 @@ services:
     tty: true
     environment:
       APP_ENV: 'local'
-    volume:
+    volumes:
       - ./env:/var/www/.env
     networks:
       - app-network
@@ -25,7 +25,7 @@ services:
     ports:
       - "80:80"
       - "443:443"
-    volume:
+    volumes:
       - ./env:/var/www/.env
     networks:
       - app-network
@@ -42,7 +42,7 @@ services:
       - 'host.docker.internal:host-gateway'
     ports:
       - "5173:5173"
-    volume:
+    volumes:
       - ./env:/var/www/.env
     networks:
       - app-network
