@@ -10,14 +10,14 @@ jobs:
         uses: actions/checkout@v3
       - name: Copy .env
         run: cp .env.example .env
+      - name: Build containers
+        run: docker-compose -f docker-compose.test.yml build fpm node
       - name: Install Composer Packages
         run: |
           docker-compose -f docker-compose.test.yml run --rm fpm composer install
       - name: php-cs-fixer Permissions
         run: |
           chmod +x tools/php-cs-fixer/vendor/bin/php-cs-fixer
-      - name: Build containers
-        run: docker-compose -f docker-compose.test.yml build fpm node
       - name: Run lint/prettier checks
         run: |
           docker-compose -f docker-compose.test.yml run --rm fpm composer fix-cs-check
