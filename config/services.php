@@ -25,13 +25,11 @@ return [
       'client_id' => env('GOOGLE_CLIENT_ID'),
       'client_secret' => env('GOOGLE_CLIENT_SECRET'),
       'redirect' => function () {
-        try {
-          return url('/auth/callback');
-        } catch (Exception $e)
-        {
-          return 'https://localhost/auth/callback';
-        }
-
+          try {
+              return url('/auth/callback');
+          } catch (Exception $e) {
+              return 'https://localhost/auth/callback';
+          }
       }
     ],
 

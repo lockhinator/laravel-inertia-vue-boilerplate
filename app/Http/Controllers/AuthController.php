@@ -13,17 +13,17 @@ class AuthController extends Controller
 {
     public function redirect()
     {
-      // because of inertia we need to grab the url and pass it in the header
-      // without this you will not get the redirect! Thanks inertia!
-      $redirectUrl = Socialite::driver('google')->redirect()->getTargetUrl();
-      return Inertia::location($redirectUrl);
+        // because of inertia we need to grab the url and pass it in the header
+        // without this you will not get the redirect! Thanks inertia!
+        $redirectUrl = Socialite::driver('google')->redirect()->getTargetUrl();
+        return Inertia::location($redirectUrl);
     }
 
     public function callback()
     {
-      $googleUser = Socialite::driver('google')->user();
+        $googleUser = Socialite::driver('google')->user();
 
-      $user = User::updateOrCreate([
+        $user = User::updateOrCreate([
         'google_id' => $googleUser->id,
       ], [
         'email' => $googleUser->email,
@@ -33,14 +33,14 @@ class AuthController extends Controller
         'google_refresh_token' => $googleUser->refreshToken,
       ]);
 
-      if (is_null($user->email_verified_at)) {
-        $user->email_verified_at = Carbon::now();
-        $user->save();
-        $user->refresh();
-      }
+        if (is_null($user->email_verified_at)) {
+            $user->email_verified_at = Carbon::now();
+            $user->save();
+            $user->refresh();
+        }
 
-      Auth::login($user);
+        Auth::login($user);
 
-      return redirect('/dashboard');
+        return redirect('/dashboard');
     }
 }
