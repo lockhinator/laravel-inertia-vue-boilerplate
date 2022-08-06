@@ -1,7 +1,10 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Foundation\Application;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Laravel\Socialite\Facades\Socialite;
 use Inertia\Inertia;
 
 /*
@@ -33,3 +36,6 @@ Route::middleware([
         return Inertia::render('Dashboard');
     })->name('dashboard');
 });
+
+Route::get('/auth/redirect', [\App\Http\Controllers\AuthController::class, 'redirect'])->name('signin');
+Route::get('/auth/callback', [\App\Http\Controllers\AuthController::class, 'callback'])->name('signin.callback');

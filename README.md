@@ -59,8 +59,8 @@ In order to run these checks locally you can run the following:
 
 - `docker-compose run --rm fpm composer fix-cs-check` to check for any php-cs-fixer issues
 - `docker-compose run --rm fpm composer fix-cs` to attempt to fix any php-cs-fixer issues
-- `docker-compose run --rm web yarn prettier:check` to check for any formatting issues prettier may have
-- `docker-compose run --rm web yarn prettier:write` to fix any formatting issues prettier finds
+- `docker-compose run --rm node yarn prettier:check` to check for any formatting issues prettier may have
+- `docker-compose run --rm node yarn prettier:write` to fix any formatting issues prettier finds
 - `docker-compose run --rm fpm php artisan test` will run the php tests
 - `docker-compose run --rm fpm php artisan test --coverage --min=95` will run the tests with code coverage at the percent required by CI (95% coverage)
 
