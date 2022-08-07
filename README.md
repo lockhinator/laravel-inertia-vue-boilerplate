@@ -9,7 +9,7 @@
 
 # About this Repo
 
-The purpose of this code base is to create a central location in which GTA5 FiveM plugins are hosted and their configs are stored. This code base acts as both the interface to configure plugins, the API to fetch plugin configs from and the authorization method for retrieving those plugins. In addition to this the code base also handles payments and subscriptions for the platform.
+Its a boilerplate. Enjoy!
 
 ## Technology
 
