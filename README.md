@@ -51,7 +51,7 @@ There are several checks that happen on each commit to the repository. These che
 - php-cs-fixer (formatting check)
 - prettier/prettier-php (formatting check)
 - PHPUnit Tests
-- PHPUnit Test Coverage Check (95% coverage required)
+- PHPUnit Test Coverage Check (85% coverage required)
 
 If any of these checks fail then the build will fail. Branches are not able to be merged into main until the CI checks have passed.
 
@@ -62,7 +62,7 @@ In order to run these checks locally you can run the following:
 - `docker-compose run --rm node yarn prettier:check` to check for any formatting issues prettier may have
 - `docker-compose run --rm node yarn prettier:write` to fix any formatting issues prettier finds
 - `docker-compose run --rm fpm php artisan test` will run the php tests
-- `docker-compose run --rm fpm php artisan test --coverage --min=95` will run the tests with code coverage at the percent required by CI (95% coverage)
+- `docker-compose run --rm fpm php artisan test --coverage --min=85` will run the tests with code coverage at the percent required by CI (85% coverage)
 
 ## Commits
 
